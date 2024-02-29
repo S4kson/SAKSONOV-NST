@@ -15,13 +15,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ComboBox 
+        <ComboBox x:Name="FunctionComboBox" 
             ItemsSource="{Binding FunctionTypes}" 
-            SelectedItem="{Binding SelectedFunctionType}" SelectionChanged="ComboBox_SelectionChanged" Grid.Row="0"/>
+            SelectedItem="{Binding SelectedFunctionType}" SelectionChanged="FunctionComboBox_SelectionChanged" Grid.Row="0"/>
         <StackPanel Grid.Row="1">
             <TextBox x:Name="TextBox1" Text="{Binding CoefficientA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" PreviewTextInput="TextBox1_PreviewTextInput" />
             <TextBox x:Name="TextBox2" Text="{Binding CoefficientB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" PreviewTextInput="TextBox2_PreviewTextInput" />
-            <ComboBox ItemsSource="{Binding CoefficientCOptions}" SelectedItem="{Binding SelectedCoefficientC}" Width="100"/>
+            <ComboBox x:Name="CoefCBox" ItemsSource="{Binding CoefficientCOptions}" SelectedItem="{Binding SelectedCoefficientC}" Width="100"/>
         </StackPanel>
         <DataGrid ItemsSource="{Binding TableValues}" AutoGenerateColumns="False" IsReadOnly="False" Grid.Row="3">
                 <DataGrid.Columns>

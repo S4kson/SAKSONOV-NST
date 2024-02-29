@@ -14,8 +14,8 @@ namespace WpfApp1
 
 
 
-        private double? _coefficientA;
-        public double? CoefficientA
+        private double _coefficientA;
+        public double CoefficientA
         {
             get { return _coefficientA; }
             set
@@ -62,7 +62,8 @@ namespace WpfApp1
             
             CoefficientCOptions = new ObservableCollection<int>();
             SelectedFunctionType = FunctionTypes[0]; 
-            UpdateCoefficientCOptions(); 
+            UpdateCoefficientCOptions();
+            SelectedCoefficientC = CoefficientCOptions[0];
         }
 
         private void UpdateCoefficientCOptions()

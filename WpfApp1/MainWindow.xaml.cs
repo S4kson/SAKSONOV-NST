@@ -15,11 +15,6 @@ namespace WpfApp1
             DataContext = new MainViewModel();
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ((MainViewModel)DataContext).OnSelectedFunctionTypeChanged();
-
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -42,6 +37,12 @@ namespace WpfApp1
             {
                 e.Handled = true;
             }
+        }
+
+        private void FunctionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ((MainViewModel)DataContext).OnSelectedFunctionTypeChanged();
+
         }
     }
 }
