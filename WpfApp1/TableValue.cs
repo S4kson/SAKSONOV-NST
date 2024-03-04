@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+
 
 namespace WpfApp1
 {
-    public class TableValue: INotifyPropertyChanged
+    public class TableValue: INotifyPropertyChanged // Данные для заполнения строк в таблице
     {
         private double _fvalue;
         public double X { get; set; }
         public double Y { get; set; }
-        public double FValue 
+        public double FValue // Для заполнения переменной приватной _fvalue
         { get => _fvalue; 
             set 
             { 
@@ -20,17 +16,7 @@ namespace WpfApp1
                 OnPropertyChanged(nameof(FValue)); 
             } 
         }
-
-        private bool _isEditable = true;
-        public bool IsEditable
-        {
-            get => _isEditable;
-            set
-            {
-                _isEditable = value;
-                OnPropertyChanged(nameof(IsEditable));
-            }
-        }
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)

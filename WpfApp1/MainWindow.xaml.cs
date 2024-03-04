@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using WpfApp1;
+
 
 
 namespace WpfApp1
@@ -39,10 +39,25 @@ namespace WpfApp1
             }
         }
 
-        private void FunctionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ((MainViewModel)DataContext).OnSelectedFunctionTypeChanged();
+        }
 
+        private void TextBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ((MainViewModel)DataContext).RecordCoefA();
+        }
+
+        private void TextBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ((MainViewModel)DataContext).RecordCoefB();
+        }
+
+        private void CoefCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ((MainViewModel)DataContext).RecordCoefC();
         }
     }
 }

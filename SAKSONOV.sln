@@ -5,6 +5,11 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{F6D5B1A2-FFFE-4C2F-9DA3-070578A3DB26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCalc", "TestCalc\TestCalc.csproj", "{FAFE42D4-495D-43DC-AC81-660B0E1D8E40}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F6D5B1A2-FFFE-4C2F-9DA3-070578A3DB26} = {F6D5B1A2-FFFE-4C2F-9DA3-070578A3DB26}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{F6D5B1A2-FFFE-4C2F-9DA3-070578A3DB26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6D5B1A2-FFFE-4C2F-9DA3-070578A3DB26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6D5B1A2-FFFE-4C2F-9DA3-070578A3DB26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAFE42D4-495D-43DC-AC81-660B0E1D8E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAFE42D4-495D-43DC-AC81-660B0E1D8E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAFE42D4-495D-43DC-AC81-660B0E1D8E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAFE42D4-495D-43DC-AC81-660B0E1D8E40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

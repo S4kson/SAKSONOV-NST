@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:behaviors="clr-namespace:WpfApp1"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wpfapp1="clr-namespace:WpfApp1" d:DataContext="{d:DesignInstance Type=wpfapp1:MainViewModel}"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
@@ -15,15 +16,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ComboBox x:Name="FunctionComboBox" 
-            ItemsSource="{Binding FunctionTypes}" 
-            SelectedItem="{Binding SelectedFunctionType}" SelectionChanged="FunctionComboBox_SelectionChanged" Grid.Row="0"/>
+        <ComboBox x:Name="FunctionComboBox"
+            ItemsSource="{Binding FunctionName, UpdateSourceTrigger=PropertyChanged}" 
+            SelectedItem="{Binding SelectedFunctionType.FunctionName, UpdateSourceTrigger=PropertyChanged}"  SelectionChanged="ComboBox_SelectionChanged"  Grid.Row="0"/>
+        
         <StackPanel Grid.Row="1">
-            <TextBox x:Name="TextBox1" Text="{Binding CoefficientA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" PreviewTextInput="TextBox1_PreviewTextInput" />
-            <TextBox x:Name="TextBox2" Text="{Binding CoefficientB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" PreviewTextInput="TextBox2_PreviewTextInput" />
-            <ComboBox x:Name="CoefCBox" ItemsSource="{Binding CoefficientCOptions}" SelectedItem="{Binding SelectedCoefficientC}" Width="100"/>
+            <TextBox x:Name="TextBox1" Text="{Binding SelectedFunctionType.CoefficientA, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" PreviewTextInput="TextBox1_PreviewTextInput" TextChanged="TextBox1_TextChanged" />
+            <TextBox x:Name="TextBox2" Text="{Binding SelectedFunctionType.CoefficientB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" PreviewTextInput="TextBox2_PreviewTextInput" TextChanged="TextBox2_TextChanged" />
+            <ComboBox x:Name="CoefCBox" ItemsSource="{Binding CoefficientCOptions}" SelectedItem="{Binding SelectedFunctionType.CoefficientC}" Width="100" SelectionChanged="CoefCBox_SelectionChanged"/>
         </StackPanel>
-        <DataGrid ItemsSource="{Binding TableValues}" AutoGenerateColumns="False" IsReadOnly="False" Grid.Row="3">
+        <DataGrid ItemsSource="{Binding TableValues}" SelectedItem="{Binding SelectedTable}" AutoGenerateColumns="False" IsReadOnly="False" Grid.Row="3">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="f(x, y)" Binding="{Binding FValue, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                     <DataGridTextColumn Header="x" Binding="{Binding X, UpdateSourceTrigger=PropertyChanged}" />
@@ -33,5 +35,6 @@
 
 
         <Button Content="Поссчитать" Grid.Row="2" Click="Button_Click" />
+
     </Grid>
 </Window>
